@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "Interact with the Commonware Library via MCP at https://mcp.commonware.xyz.",
   "type": "module",
+  "engines": {
+    "node": ">=24.18.1"
+  },
   "scripts": {
     "dev": "wrangler dev --test-scheduled",
     "deploy": "wrangler deploy",
