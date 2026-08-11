@@ -32,7 +32,7 @@ jobs:
           - ""
     steps:
     - name: Checkout repository
-      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Run setup
       uses: ./.github/actions/setup
       with:
@@ -84,9 +84,12 @@ jobs:
     name: Upload
     runs-on: ubuntu-latest
     needs: Coverage
+    permissions:
+      contents: read
+      id-token: write
     steps:
     - name: Checkout repository
-      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Download coverage reports
       uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
@@ -97,4 +100,4 @@ jobs:
       with:
         files: lcov-*.info
         fail_ci_if_error: true
-        token: ${{ secrets.CODECOV_TOKEN }}
+        use_oidc: true
