@@ -61,7 +61,7 @@ Or add to `.mcp.json` in your project:
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24.18.1+
 - Wrangler CLI (`npm install -g wrangler`)
 - Cloudflare account
 
