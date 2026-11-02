@@ -10,6 +10,10 @@ permissions:
 jobs:
   assign-creator:
     name: Assign PR Creator
+    # Bots cannot be assignees: the REST call is rejected with "Assigning
+    # agents is not supported with GitHub App installation tokens", which
+    # reds every Dependabot pull request.
+    if: github.event.pull_request.user.type != 'Bot'
     runs-on: ubuntu-latest
     steps:
       - name: Add PR creator as assignee
